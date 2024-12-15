@@ -1,19 +1,22 @@
 body{
     background: rgb(124, 57, 57); /*Фон*/
     color: white; /*Color text*/
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-family: "Sofia Sans Extra Condensed", sans-serif;
+    
 }
 
 h1{
     color: red;
-    font-size: 30px;
+    font-size: 65px;
     text-align: center;
-
+    font-family: "Sofia Sans Extra Condensed", sans-serif;
     
 }
 
 p{
     color: rgb(255, 226, 226)
+    
 }
 
 a{
@@ -39,4 +42,10 @@ a{
     box-shadow: 0 0 15px #00ff9d;
     background: hsl(327, 100%, 50%);
     
+}
+
+footer{
+
+    background: #0073ff ;
+    color: white;
 }
