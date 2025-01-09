@@ -8,6 +8,6 @@ class DBManager():
         self.conn = sqlite3.connect(self.dbname)
         self.cursor = self.conn.cursor()
         self.cursor.execute('''SELECT * FROM categories''')
-        data = self.cursor.fetchall
+        data = self.cursor.fetchall()
         self.conn.close()
         return data

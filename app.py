@@ -8,7 +8,7 @@ db = DBManager("blog.db")
 def index():
     categories = db.get_categories()
     print(categories)
-    return render_template("index.html")  # html-сторінка, що повертається у браузер
+    return render_template("index.html", categories=categories)  # html-сторінка, що повертається у браузер
 
 
 if __name__ == "__main__":
