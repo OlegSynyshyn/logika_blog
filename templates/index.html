@@ -28,12 +28,27 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-        <h1 class="mt-5">Привіт із сервера!</h1>
-        {{categories}}
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod odit ullam velit ipsa consequuntur eveniet atque in veritatis voluptatum neque modi sed incidunt ab sit voluptatem veniam, deserunt minima iste nemo saepe labore aut. Repudiandae quidem inventore quis, nulla cupiditate asperiores a doloribus minima vel unde accusamus optio dolorem tempora, architecto veniam aut? Ducimus laborum ratione explicabo ex at atque eveniet iure tenetur cumque, alias provident quod, libero sint similique earum! Iste rem neque voluptatem perspiciatis eveniet deleniti cum id fugiat dolore numquam, odit, illum dolorum voluptate natus dolores tempore assumenda beatae nam ipsum in nobis non voluptatibus dignissimos? Sed numquam ipsam est praesentium ad consectetur sunt qui itaque aliquam. Quaerat eligendi eveniet iusto similique, deserunt asperiores nobis doloribus non neque, voluptatem unde autem at amet repellat aut. Vitae repudiandae labore non voluptas deserunt cupiditate neque reiciendis est, molestiae adipisci, iste facere dolore earum quos dignissimos ab. Et, atque minus. Magnam adipisci quia a ducimus omnis, cumque aliquid quae accusantium dolorum nisi. Quibusdam consequatur distinctio totam facere dolore, accusantium, quaerat ex sit officia similique iusto qui officiis voluptates, unde dolorem perferendis? Consectetur consequuntur nostrum iusto quae doloribus! Temporibus, accusamus delectus nulla suscipit veniam quae quod alias placeat earum illum iure, sit cum quasi hic modi voluptatibus culpa, repudiandae corporis excepturi numquam eveniet. Tempora minus tenetur aspernatur nihil possimus sed minima itaque rem nesciunt similique odio eaque est voluptates error ullam pariatur dicta consectetur accusantium quos, deleniti facere adipisci blanditiis neque iusto! Nam blanditiis nesciunt itaque architecto. Nesciunt sequi illum quos! Vel aliquam, quos consectetur, assumenda sunt soluta harum quaerat quisquam necessitatibus ea, quas maiores ad deserunt ducimus in hic recusandae eos alias? Possimus odit, saepe neque aperiam magnam tempore. Vel culpa quidem, illum, saepe aliquid error doloremque assumenda iste dolore minus veniam tempore fugit sapiente itaque. Quia illo optio ratione incidunt enim a earum quis dolor maiores esse saepe dicta quos accusantium recusandae, minus temporibus! Culpa libero porro natus obcaecati repellat consequatur, non, pariatur quos dignissimos impedit architecto cum iure qui velit illum rem voluptate ab? Ipsam quae dolorem hic suscipit officia minus eligendi reprehenderit ipsum ratione labore maiores magnam pariatur possimus beatae provident quam, veritatis, atque cupiditate libero ex, reiciendis distinctio! Ad rerum modi iusto voluptatem atque inventore sed consequatur beatae similique vel perferendis fugiat recusandae molestias voluptatibus, necessitatibus ab sapiente rem officiis sunt, unde distinctio quos veniam odio. Earum saepe asperiores deserunt temporibus delectus mollitia consequuntur rerum quaerat deleniti accusamus modi id at numquam quibusdam ullam reiciendis pariatur quam voluptas repellat neque, corrupti porro aspernatur aperiam! Eligendi nisi maiores necessitatibus repudiandae quis officiis repellendus ducimus error provident adipisci totam animi velit, praesentium tempora, dolorem illum ex placeat nostrum sint nesciunt incidunt numquam ratione et! Similique delectus dolorum deserunt ipsam dolor commodi aspernatur incidunt sed! Accusamus minus mollitia placeat architecto nemo doloribus ad alias possimus corrupti dignissimos, ea fugiat a animi quos voluptates ratione dolore asperiores temporibus dolorum ex! Qui modi facere fugiat corporis? Magni quibusdam id praesentium, deleniti incidunt dolores sit sequi, placeat obcaecati consectetur numquam, fugiat voluptates?
-        </p>
-        <button class="btn btn-info">Кнопка</button>
-    </main>
+      <main class="container mt-5">
+          <h1 class="mt-5">Information</h1>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+          {% for article in articles %}
+
+          
+            <div class="card" style="width: 18rem;">
+
+              {% if article[4] %}
+              <img src="{{ url_for('static', filename='Photos/' + article[4]) }}" alt="...">
+              {% endif %}
+              
+              <div class="card-body">
+                <h5 class="card-title">{{article[1]}}</h5>
+                <p class="card-text">{{article[2]}}</p>
+                <a href="#" class="btn btn-primary">more about...</a>
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+      </main>
  
 </html>
 
