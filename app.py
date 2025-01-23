@@ -15,7 +15,14 @@ def index():
 def category_page(category_id):
     categories = db.get_categories()
     articles = db.get_articles_by_category(category_id)
-    return render_template("index.html", categories=categories, articles=articles)  # html-сторінка, що повертається у браузер
+    return render_template("category.html", categories=categories, articles=articles, category_name=categories[category_id][1])  # html-сторінка, що повертається у браузер
+
+@app.route("/articles/<int:article_id>")  # Вказуємо url-адресу для виклику функції
+def article_page(article_id):
+    categories = db.get_categories()
+    article = db.get_article_by_id(article_id)
+    return render_template("article.html", categories=categories, article=article)
+
 
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True  # автоматичне оновлення шаблонів
