@@ -1,8 +1,13 @@
 from flask import Flask, render_template
 from db_scripts import DBManager
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 app = Flask(__name__)  # Створюємо веб–додаток Flask
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 db = DBManager("blog.db")
+
 
 @app.route("/")  # Вказуємо url-адресу для виклику функції
 def index():
@@ -22,6 +27,12 @@ def article_page(article_id):
     categories = db.get_categories()
     article = db.get_article_by_id(article_id)
     return render_template("article.html", categories=categories, article=article)
+
+
+@app.route("/articles/new", methods=["GET", "POST"] )
+def new_article():
+    categories = db.get_categories()
+    return render_template("new_article.html", categories=categories)
 
 
 if __name__ == "__main__":

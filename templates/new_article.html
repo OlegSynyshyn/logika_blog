@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Нова стаття - LogikaBlog</title>
+
+{% endblock title %}
+
+{% block content %}
+
+
+<main class="container my-5">
+
+  <h1 class="mt-5">Додавання статті</h1>
+    
+  <form action="" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Назва статті</label>
+        <input required name="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"> Короткий опис</label>
+        <textarea name="description" class="form-control" id="exampleFormControlInput1" rows="2" placeholder=""></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Опис</label>
+        <textarea required name="text"  class="form-control" id="exampleFormControlInput1" rows="7" placeholder=""></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Виберіть зображення</label>
+        <input class="form-control" type="file" id="formFile">
+      </div>
+
+      
+      <select required name="category" class="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        {% for id, title in categories %}
+            <option value="{{id}}">{{title}}</option>
+        
+                        
+        {% endfor %}
+        
+      </select>
+      <button type="submit" class="btn btn-primary my-4">Зберегти</button>
+  </form>
+
+
+
+
+</main>
+
+{% endblock content%}
