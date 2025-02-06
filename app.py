@@ -1,8 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from db_scripts import DBManager
 from dotenv import load_dotenv
 load_dotenv()
 import os
+IMG_PATH = os.path.dirname(__file__) + os.sep + 'static' + os.sep + 'img'
+
+
 
 app = Flask(__name__)  # Створюємо веб–додаток Flask
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
@@ -32,6 +35,12 @@ def article_page(article_id):
 @app.route("/articles/new", methods=["GET", "POST"] )
 def new_article():
     categories = db.get_categories()
+    if request.method == 'POST':
+
+        image = request.files['image']
+        image.save(IMG_PATH + os.sep + image.filename)
+        db.create_article(request.form['title'], request.form['description'], request.form['text'], image.filename, 1, request.form['category'])
+
     return render_template("new_article.html", categories=categories)
 
 

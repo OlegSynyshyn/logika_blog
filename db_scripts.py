@@ -37,3 +37,10 @@ class DBManager():
         data = self.cursor.fetchone()
         self.conn.close()
         return data
+    
+
+    def create_article(self, title, description, text, image, author_id, category_id):
+        self.open_db()
+        self.cursor.execute(''' INSERT INTO articles(title, description, text, image, author_id, category_id) VALUES(?,?,?,?,?,?)''', [title, description, text, image, author_id, category_id])
+        self.conn.commit()
+        self.conn.close()
