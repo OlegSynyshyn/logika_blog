@@ -44,3 +44,11 @@ class DBManager():
         self.cursor.execute(''' INSERT INTO articles(title, description, text, image, author_id, category_id) VALUES(?,?,?,?,?,?)''', [title, description, text, image, author_id, category_id])
         self.conn.commit()
         self.conn.close()
+
+    def search_articles(self, query):
+        self.open_db()
+        query = '%' + query + '%'
+        self.cursor.execute('''SELECT * FROM articles WHERE (title LIKE ? OR description LIKE ?) ''', [query, query])
+        data = self.cursor.fetchall()
+        self.conn.close()
+        return data

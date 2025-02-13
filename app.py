@@ -43,6 +43,13 @@ def new_article():
 
     return render_template("new_article.html", categories=categories)
 
+@app.route("/search")  # Вказуємо url-адресу для виклику функції
+def search_page():
+    categories = db.get_categories()
+    query = request.args.get("query", '')
+    articles = db.search_articles(query)
+    return render_template("category.html", categories=categories, articles=articles, category_name=query)
+
 
 if __name__ == "__main__":
     app.config['TEMPLATES_AUTO_RELOAD'] = True  # автоматичне оновлення шаблонів
